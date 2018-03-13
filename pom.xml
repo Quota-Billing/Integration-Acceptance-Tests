@@ -8,7 +8,19 @@
     <artifactId>Integration-Acceptance-Tests</artifactId>
     <version>0.0.1</version>
 
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
+
     <dependencies>
+        <dependency>
+            <groupId>com.github.Quota-Billing</groupId>
+            <artifactId>Java-SDK</artifactId>
+            <version>4993583d7013fce1c3f4667cab9df20b09dcdd0d</version>
+        </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
