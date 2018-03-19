@@ -16,6 +16,7 @@ before_script:
  - mvn clean compile flyway:migrate
  - mvn exec:java &
  - cd /tmp/Quota-Billing
+ - git checkout int-test
  - mvn clean compile
  - mvn exec:java &
  - cd /home/travis/build/Quota-Billing/Integration-Acceptance-Tests
