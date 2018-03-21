@@ -11,8 +11,9 @@ before_script:
  - psql -c "CREATE DATABASE quota;" -U postgres
  - psql -c "GRANT ALL PRIVILEGES ON DATABASE quota to quota;" -U postgres
  - cd /tmp/Quota
+ - git checkout int-test
  - sudo mkdir /quota
- - echo '{billingServerPath:"http://localhost:8085",sharedServerPath:"http://localhost:8084",databaseUrl:"jdbc:postgresql://localhost:5432/quota?user=quota&password=$POSTGRES_PASS}"' | sudo tee --append /quota/config.json
+ - echo '{"billingServerPath":"http://localhost:8085","sharedServerPath":"http://localhost:8084","databaseUrl":"jdbc:postgresql://localhost:5432/quota?user=quota&password=$POSTGRES_PASS"}' | sudo tee --append /quota/config.json
  - mvn clean compile flyway:migrate
  - mvn exec:java &
  - cd /tmp/Quota-Billing
@@ -22,7 +23,6 @@ before_script:
  - cd /home/travis/build/Quota-Billing/Integration-Acceptance-Tests
 script:
  - mvn clean verify
- - curl http://localhost:8084
 after_script:
  - fuser -k 8080/tcp
  - fuser -k 8084/tcp
